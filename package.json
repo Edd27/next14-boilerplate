@@ -28,6 +28,10 @@
     "tailwindcss": "3.3.0",
     "typescript": "5"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,md,json}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+  },
   "name": "next14-boilerplate",
   "private": true,
   "scripts": {
