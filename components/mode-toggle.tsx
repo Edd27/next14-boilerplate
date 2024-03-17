@@ -46,7 +46,7 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
           >
             <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Cambiar tema</span>
+            <span className="sr-only">Change theme</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -55,21 +55,21 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
             onClick={() => setTheme("light")}
           >
             {icons ? <Sun className="mr-2 h-4 w-4" /> : null}
-            <span>Claro</span>
+            <span>Light</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             className="cursor-pointer"
             onClick={() => setTheme("dark")}
           >
             {icons ? <Moon className="mr-2 h-4 w-4" /> : null}
-            <span>Oscuro</span>
+            <span>Dark</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             className="cursor-pointer"
             onClick={() => setTheme("system")}
           >
             {icons ? <SunMoon className="mr-2 h-4 w-4" /> : null}
-            <span>Sistema</span>
+            <span>System</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -81,7 +81,7 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
       <DropdownMenuSub>
         <DropdownMenuSubTrigger className="cursor-pointer">
           <Brush className="mr-2 h-4 w-4" />
-          <span>Tema</span>
+          <span>Theme</span>
         </DropdownMenuSubTrigger>
         <DropdownMenuPortal>
           <DropdownMenuSubContent>
@@ -90,21 +90,21 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
               onClick={() => setTheme("light")}
             >
               {icons ? <Sun className="mr-2 h-4 w-4" /> : null}
-              <span>Claro</span>
+              <span>Light</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="cursor-pointer"
               onClick={() => setTheme("dark")}
             >
               {icons ? <Moon className="mr-2 h-4 w-4" /> : null}
-              <span>Oscuro</span>
+              <span>Dark</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="cursor-pointer"
               onClick={() => setTheme("system")}
             >
               {icons ? <SunMoon className="mr-2 h-4 w-4" /> : null}
-              <span>Sistema</span>
+              <span>System</span>
             </DropdownMenuItem>
           </DropdownMenuSubContent>
         </DropdownMenuPortal>
