@@ -16,3 +16,7 @@ export function excludeFields(entity: any, keys: string[]) {
 
   return clone;
 }
+
+export async function fetcher(...args: any) {
+  return fetch(args).then((res) => res.json());
+}
