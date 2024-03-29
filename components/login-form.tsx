@@ -19,7 +19,7 @@ import { z } from "zod";
 import { useToast } from "./ui/use-toast";
 
 const formSchema = z.object({
-  email: z.string().email("Verify your email"),
+  email: z.string().min(3, "Email or username is required."),
   password: z
     .string({ required_error: "The password is required" })
     .min(1, "The password is required"),
@@ -51,8 +51,8 @@ export default function LoginForm() {
 
       if (response?.error === "CredentialsSignin") {
         toast({
-          title: "Verify your credentials",
-          description: "Email or password are incorrect",
+          title: "Incorrect credentials",
+          description: "Verify your credentials and try again",
           variant: "destructive",
         });
 
@@ -92,10 +92,10 @@ export default function LoginForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Email or username</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="yo@ejemplo.com"
+                    placeholder="me@example.com or jdoe"
                     {...field}
                   />
                 </FormControl>

@@ -25,7 +25,12 @@ export const authOptions: NextAuthOptions = {
         }
 
         const userFound = await prisma.user.findFirst({
-          where: { email: credentials?.email },
+          where: {
+            OR: [
+              { email: credentials?.email },
+              { username: credentials?.email },
+            ],
+          },
         });
 
         if (!userFound) {
