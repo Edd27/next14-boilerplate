@@ -1,7 +1,9 @@
+import Section from "@/components/ui/section";
+
 export default function ProfilePage() {
   return (
-    <section>
-      <h2 className="text-xl font-bold">User profile</h2>
-    </section>
+    <Section title="Profile">
+      <p>This is the user profile page</p>
+    </Section>
   );
 }

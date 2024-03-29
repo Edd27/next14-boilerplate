@@ -64,7 +64,7 @@ export default function SidebarMenu({ links }: Props) {
         <li>
           <Button
             variant="ghost"
-            className="w-full cursor-pointer justify-start gap-2 font-semibold"
+            className="w-full cursor-pointer justify-start gap-2 font-semibold text-destructive hover:bg-destructive/10 hover:text-destructive"
             onClick={async () => await signOut({ callbackUrl: "/" })}
           >
             <LogOut />

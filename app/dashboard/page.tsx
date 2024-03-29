@@ -1,7 +1,9 @@
+import Section from "@/components/ui/section";
+
 export default function Dashboard() {
   return (
-    <section>
-      <h1 className="text-xl font-bold">Dashboard</h1>
-    </section>
+    <Section title="Dashboard">
+      <p>This is the dashboard page</p>
+    </Section>
   );
 }

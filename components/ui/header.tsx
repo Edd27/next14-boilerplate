@@ -5,6 +5,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -23,15 +24,20 @@ function Menu() {
       <DropdownMenuTrigger className="flex items-center gap-2 focus:outline-none">
         <Avatar className="h-8 w-8">
           <AvatarImage
-            src={`https://ui-avatars.com/api/?name=${currentUser?.name}+${currentUser?.surname}`}
+            src={
+              currentUser?.avatar ||
+              `https://ui-avatars.com/api/?name=${`${currentUser?.name} ${currentUser?.surname}`.trim().replaceAll(" ", "+")}`
+            }
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <p className="hidden text-sm font-bold lg:block">
-          {`${currentUser?.name} ${currentUser?.surname}`.trim()}
-        </p>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="font-semibold">
+      <DropdownMenuContent className="mr-4 min-w-[200px] font-semibold">
+        <DropdownMenuLabel className="flex flex-col">
+          {`${currentUser?.name} ${currentUser?.surname}`.trim()}
+          <small className="opacity-70">{currentUser?.email}</small>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link
             href="/dashboard/profile"
@@ -45,7 +51,7 @@ function Menu() {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={async () => await signOut({ callbackUrl: "/" })}
-          className="flex cursor-pointer items-center gap-2"
+          className="flex cursor-pointer items-center gap-2 text-destructive focus:bg-destructive/10 focus:text-destructive"
         >
           <LogOut className="h-4 w-4" />
           <span>Logout</span>
