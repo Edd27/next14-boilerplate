@@ -2,6 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -11,11 +16,19 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Brush, Moon, Sun, SunMoon } from "lucide-react";
+import {
+  Brush,
+  BrushIcon,
+  CheckIcon,
+  ChevronsUpDownIcon,
+  Moon,
+  Sun,
+  SunMoon,
+} from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface Props {
-  type: "button" | "menu" | "submenu";
+  type: "button" | "menu" | "submenu" | "collapsible";
   icons?: boolean;
 }
 
@@ -73,6 +86,58 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+    );
+  }
+
+  if (type === "collapsible") {
+    return (
+      <Collapsible>
+        <CollapsibleTrigger asChild>
+          <Button
+            variant="ghost"
+            className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
+          >
+            <BrushIcon />
+            <span>Theme</span>
+            <ChevronsUpDownIcon className="absolute right-4 h-4 w-4" />
+          </Button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="flex flex-col">
+          <Button
+            variant="ghost"
+            className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
+            onClick={() => setTheme("light")}
+          >
+            {icons ? <Sun className="mr-2 h-4 w-4" /> : null}
+            <span>Light</span>
+            {theme === "light" && (
+              <CheckIcon className="absolute right-4 h-4 w-4" />
+            )}
+          </Button>
+          <Button
+            variant="ghost"
+            className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
+            onClick={() => setTheme("dark")}
+          >
+            {icons ? <Moon className="mr-2 h-4 w-4" /> : null}
+            <span>Dark</span>
+            {theme === "dark" && (
+              <CheckIcon className="absolute right-4 h-4 w-4" />
+            )}
+          </Button>
+          <Button
+            variant="ghost"
+            className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
+            onClick={() => setTheme("system")}
+          >
+            {icons ? <SunMoon className="mr-2 h-4 w-4" /> : null}
+            <span>System</span>
+            {theme === "system" && (
+              <CheckIcon className="absolute right-4 h-4 w-4" />
+            )}
+          </Button>
+        </CollapsibleContent>
+      </Collapsible>
     );
   }
 

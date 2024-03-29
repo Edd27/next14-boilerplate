@@ -1,20 +1,11 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 import { metadata } from "@/app/layout";
 import { User } from "@/lib/definitions";
-import { LayoutDashboard, LayoutGrid } from "lucide-react";
+import { LayoutGrid } from "lucide-react";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { links } from "./links";
 import SidebarMenu from "./sidebar-menu";
-
-export const links = [
-  {
-    id: "1",
-    href: "/dashboard",
-    label: "Dashboard",
-    roles: ["ADMIN", "USER"],
-    icon: <LayoutDashboard />,
-  },
-];
 
 export default async function Sidebar() {
   const session = await getServerSession(authOptions);
