@@ -20,3 +20,14 @@ export function excludeFields(entity: any, keys: string[]) {
 export async function fetcher(...args: any) {
   return fetch(args).then((res) => res.json());
 }
+
+export const FIELDS: { [key: string]: string } = {
+  name: "Nombre",
+  surname: "Apellidos",
+  email: "Correo electrónico",
+  username: "Usuario",
+  phone: "Teléfono",
+  password: "Contraseña",
+  role: "Rol",
+  actions: "Acciones",
+};
