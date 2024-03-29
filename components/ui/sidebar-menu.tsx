@@ -6,9 +6,9 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
-import { Button } from "./ui/button";
-import { ScrollArea } from "./ui/scroll-area";
-import { Separator } from "./ui/separator";
+import { Button } from "./button";
+import { ScrollArea } from "./scroll-area";
+import { Separator } from "./separator";
 
 interface Props {
   links: {

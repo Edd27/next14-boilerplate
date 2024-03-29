@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useToast } from "./ui/use-toast";
+import { useToast } from "../ui/use-toast";
 
 const formSchema = z.object({
   email: z.string().min(3, "Email or username is required."),

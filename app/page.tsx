@@ -1,5 +1,5 @@
-import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { authOptions } from "./api/auth/[...nextauth]/options";

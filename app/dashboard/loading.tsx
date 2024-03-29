@@ -1,5 +1,5 @@
-import Backdrop from "@/components/backdrop";
-import Loader from "@/components/loader";
+import Backdrop from "@/components/ui/backdrop";
+import Loader from "@/components/ui/loader";
 
 export default function Loading() {
   return (
