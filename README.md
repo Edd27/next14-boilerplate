@@ -10,6 +10,7 @@ This GitHub project template is designed to help you get started quickly with Ne
 [![eslint](https://img.shields.io/badge/eslint-4133B7?style=for-the-badge&logo=eslint&logoColor=FFF)](https://eslint.org/)
 [![prettier](https://img.shields.io/badge/prettier-F6B249?style=for-the-badge&logo=prettier&logoColor=000)](https://prettier.io/)
 [![next-auth](https://img.shields.io/badge/next%20auth-1687FB?style=for-the-badge&logo=next.js&logoColor=FF5C01)](https://next-auth.js.org/)
+[![shadcn](https://img.shields.io/badge/shadcn%20ui-000?style=for-the-badge&logo=shadcnui&logoColor=fff)](https://ui.shadcn.com/docs/components/accordion)
 
 ## Getting started
 
