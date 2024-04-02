@@ -35,9 +35,19 @@ This GitHub project template is designed to help you get started quickly with Ne
    npx prisma db seed
    ```
 7. Run server on dev mode:
-
    ```bash
    npm run dev
+   ```
+8. Test the app, with the following credentials:
+   
+   Username:
+   ```
+   jdoe
+   ```
+
+   Password:
+   ```
+   jdoe
    ```
 
 ## License
