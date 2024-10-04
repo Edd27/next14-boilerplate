@@ -15,6 +15,7 @@ This GitHub project template is designed to help you get started quickly with Ne
 ## Getting started
 
 1. Clone this repository to your local development environment.
+
    ```bash
    git clone https://github.com/Edd27/next14-boilerplate.git
    ```
@@ -23,8 +24,9 @@ This GitHub project template is designed to help you get started quickly with Ne
 
    - Fork this project on your GitHub account.
    - Create new repository and select the template.
-      ![image](https://github.com/Edd27/next14-boilerplate/assets/50682699/6d421b61-53e1-40ab-b8fc-0fccd9229467)
+     ![image](https://github.com/Edd27/next14-boilerplate/assets/50682699/6d421b61-53e1-40ab-b8fc-0fccd9229467)
 
+2. Create a `.env` file from `.env.example`, then edit with your values.
 3. Create a docker container with PostgreSQL.
    ```bash
    docker compose up -d
@@ -33,27 +35,28 @@ This GitHub project template is designed to help you get started quickly with Ne
    ```bash
    npm install
    ```
-5. Create a `.env` file from `.env.example`, then edit with your values.
-6. Push prisma schema to the database.
+5. Push prisma schema to the database.
    ```bash
    npx prisma db push
    ```
-7. Seed database:
+6. Seed database:
    ```bash
    npx prisma db seed
    ```
-8. Run server on dev mode:
+7. Run server on dev mode:
    ```bash
    npm run dev
    ```
-9. Test the app, with the following credentials:
-   
+8. Test the app, with the following credentials:
+
    Username:
+
    ```
    jdoe
    ```
 
    Password:
+
    ```
    jdoe
    ```
