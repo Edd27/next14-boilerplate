@@ -8,6 +8,12 @@ async function main() {
 
       // eslint-disable-next-line no-console
       console.log("🧹 Deleted all data seeded successfully");
+    } else {
+      const users = await prisma.user.count();
+
+      if (users > 0) {
+        throw new Error("Database already seeded");
+      }
     }
 
     await prisma.user.create({
