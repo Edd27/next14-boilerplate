@@ -4,7 +4,9 @@ This GitHub project template is designed to help you get started quickly with Ne
 
 ## Demo
 
-You can see the demo of the project: [Demo](https://next-template.edgarbenavides.dev/)
+you can see a demonstration of the project at: 
+
+[Demo](https://next-template.edgarbenavides.dev/)
 
 ## Technologies
 
