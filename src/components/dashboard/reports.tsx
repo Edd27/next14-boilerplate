@@ -36,7 +36,7 @@ const reportData = [
 const chartConfig = {
   total: {
     label: "Reports",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(var(--primary))",
   },
 } satisfies ChartConfig;
 
