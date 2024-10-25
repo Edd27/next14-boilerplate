@@ -2,6 +2,11 @@
 
 This GitHub project template is designed to help you get started quickly with Next.js.
 
+## Demo
+
+You can see the demo of the project on:
+[![https://next-template.edgarbenavides.dev/](https://img.shields.io/badge/next.js-000?style=for-the-badge&logo=next.js&logoColor=fff)](https://next-template.edgarbenavides.dev/)
+
 ## Technologies
 
 [![next-js](https://img.shields.io/badge/next.js-000?style=for-the-badge&logo=next.js&logoColor=fff)](https://nextjs.org/)
