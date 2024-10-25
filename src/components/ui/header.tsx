@@ -18,7 +18,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { User } from "@/lib/definitions";
-import { LayoutGrid, LogOut, MenuIcon, UserRound } from "lucide-react";
+import {
+  BotMessageSquareIcon,
+  LogOut,
+  MenuIcon,
+  UserRoundIcon,
+} from "lucide-react";
 import { SessionProvider, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -56,11 +61,12 @@ function Menu() {
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link
-                href="/dashboard/profile"
+                scroll={false}
+                href="/dashboard/my-account"
                 className="flex cursor-pointer items-center gap-2"
               >
-                <UserRound className="h-4 w-4" />
-                <span>Profile</span>
+                <UserRoundIcon className="h-4 w-4" />
+                <span>My account</span>
               </Link>
             </DropdownMenuItem>
             <ModeToggle type="submenu" />
@@ -70,7 +76,7 @@ function Menu() {
               className="flex cursor-pointer items-center gap-2 text-destructive focus:bg-destructive/10 focus:text-destructive"
             >
               <LogOut className="h-4 w-4" />
-              <span>Logout</span>
+              <span>Log out</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -104,26 +110,35 @@ function Menu() {
             </SheetHeader>
             <section className="mt-4 flex flex-col gap-3 p-2">
               <ScrollArea className="max-h-[calc(100vh-460px)]">
-                {links?.map((link) => (
-                  <SheetClose
-                    asChild
-                    key={link.id}
-                  >
-                    <Button
+                {links?.map((link) => {
+                  const allowed = link.roles.includes(currentUser?.role);
+
+                  if (!allowed) {
+                    return null;
+                  }
+
+                  return (
+                    <SheetClose
                       asChild
-                      variant="ghost"
-                      className={`w-full justify-start ${pathname === link.href ? "bg-secondary" : "bg-inherit"}`}
+                      key={link.id}
                     >
-                      <Link
-                        href={link.href}
-                        className="gap-2 font-semibold"
+                      <Button
+                        asChild
+                        variant="ghost"
+                        className={`w-full justify-start ${pathname === link.href ? "bg-secondary" : "bg-inherit"}`}
                       >
-                        {link.icon}
-                        {link.label}
-                      </Link>
-                    </Button>
-                  </SheetClose>
-                ))}
+                        <Link
+                          scroll={false}
+                          href={link.href}
+                          className="gap-2 font-semibold"
+                        >
+                          {link.icon}
+                          {link.label}
+                        </Link>
+                      </Button>
+                    </SheetClose>
+                  );
+                })}
               </ScrollArea>
               <Separator />
               <ul>
@@ -132,14 +147,15 @@ function Menu() {
                     <Button
                       asChild
                       variant="ghost"
-                      className={`w-full justify-start ${pathname === "/dashboard/profile" ? "bg-secondary" : "bg-inherit"}`}
+                      className={`w-full justify-start ${pathname === "/dashboard/my-account" ? "bg-secondary" : "bg-inherit"}`}
                     >
                       <Link
-                        href="/dashboard/profile"
+                        scroll={false}
+                        href="/dashboard/my-account"
                         className="gap-2 font-semibold"
                       >
-                        <UserRound />
-                        <span>Profile</span>
+                        <UserRoundIcon />
+                        <span>My account</span>
                       </Link>
                     </Button>
                   </SheetClose>
@@ -155,7 +171,7 @@ function Menu() {
                       onClick={async () => await signOut({ callbackUrl: "/" })}
                     >
                       <LogOut />
-                      <span>Logout</span>
+                      <span>Log out</span>
                     </Button>
                   </SheetClose>
                 </li>
@@ -173,11 +189,12 @@ export default function Header() {
     <SessionProvider>
       <header className="fixed left-0 right-0 top-0 z-40 flex h-16 items-center justify-between bg-background p-4 shadow backdrop-blur lg:left-64 lg:justify-end">
         <Link
-          href="/"
-          className="flex items-center gap-2 text-xl font-bold uppercase lg:hidden"
+          scroll={false}
+          href="/dashboard"
+          className="flex items-center gap-2 text-xl font-bold lg:hidden"
         >
-          <LayoutGrid />
-          <span className="hidden sm:block">Next App</span>
+          <BotMessageSquareIcon />
+          <span className="hidden sm:block">Botion</span>
         </Link>
         <section className="flex items-center gap-4">
           <Menu />

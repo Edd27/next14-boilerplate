@@ -19,10 +19,10 @@ import { z } from "zod";
 import { useToast } from "../ui/use-toast";
 
 const formSchema = z.object({
-  email: z.string().min(3, "Email or username is required."),
+  email: z.string().min(3, "Required field"),
   password: z
-    .string({ required_error: "The password is required" })
-    .min(1, "The password is required"),
+    .string({ required_error: "Required field" })
+    .min(1, "Required field"),
 });
 
 export default function LoginForm() {
@@ -52,7 +52,7 @@ export default function LoginForm() {
       if (response?.error === "CredentialsSignin") {
         toast({
           title: "Incorrect credentials",
-          description: "Verify your credentials and try again",
+          description: "Please check your email and password and try again.",
           variant: "destructive",
         });
 
@@ -61,15 +61,15 @@ export default function LoginForm() {
 
       if (response?.error === "AccessDenied") {
         return toast({
-          title: "Forbidden",
-          description: "You don't have permission to access this resource",
+          title: "Access denied",
+          description: "You do not have permission to access this page.",
           variant: "destructive",
         });
       }
 
       toast({
         title: "Error",
-        description: "Something went wrong",
+        description: "Something went wrong. Please try again.",
         variant: "destructive",
       });
     }
@@ -92,10 +92,10 @@ export default function LoginForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email or username</FormLabel>
+                <FormLabel>User name</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="me@example.com or jdoe"
+                    placeholder="me@example.com or myusername"
                     {...field}
                   />
                 </FormControl>
@@ -133,7 +133,7 @@ export default function LoginForm() {
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? "Validating..." : "Login"}
+            {isLoading ? "Logging in..." : "Login"}
           </Button>
         </form>
       </Form>

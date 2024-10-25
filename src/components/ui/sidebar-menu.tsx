@@ -1,7 +1,7 @@
 "use client";
 
 import { User } from "@/lib/definitions";
-import { LogOut, UserRound } from "lucide-react";
+import { LogOut, UserRoundIcon } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,28 +21,37 @@ interface Props {
   currentUser: User;
 }
 
-export default function SidebarMenu({ links }: Props) {
+export default function SidebarMenu({ links, currentUser }: Props) {
   const pathname = usePathname();
 
   return (
     <nav className="flex h-[calc(100vh-66px)] flex-col gap-3 p-4">
       <ScrollArea className="max-h-[calc(100vh-460px)]">
-        {links?.map((link) => (
-          <Button
-            key={link.id}
-            asChild
-            variant="ghost"
-            className={`w-full justify-start ${pathname === link.href ? "bg-secondary" : "bg-inherit"}`}
-          >
-            <Link
-              href={link.href}
-              className="gap-2 font-semibold"
+        {links?.map((link) => {
+          const allowed = link.roles.includes(currentUser?.role);
+
+          if (!allowed) {
+            return null;
+          }
+
+          return (
+            <Button
+              key={link.id}
+              asChild
+              variant="ghost"
+              className={`w-full justify-start ${pathname === link.href ? "bg-secondary" : "bg-inherit"}`}
             >
-              {link.icon}
-              {link.label}
-            </Link>
-          </Button>
-        ))}
+              <Link
+                href={link.href}
+                className="gap-2 font-semibold"
+                scroll={false}
+              >
+                {link.icon}
+                {link.label}
+              </Link>
+            </Button>
+          );
+        })}
       </ScrollArea>
       <Separator />
       <ul>
@@ -50,14 +59,15 @@ export default function SidebarMenu({ links }: Props) {
           <Button
             asChild
             variant="ghost"
-            className={`w-full justify-start ${pathname === "/dashboard/profile" ? "bg-secondary" : "bg-inherit"}`}
+            className={`w-full justify-start ${pathname === "/dashboard/my-account" ? "bg-secondary" : "bg-inherit"}`}
           >
             <Link
-              href="/dashboard/profile"
+              href="/dashboard/my-account"
               className="gap-2 font-semibold"
+              scroll={false}
             >
-              <UserRound />
-              <span>Profile</span>
+              <UserRoundIcon />
+              <span>My account</span>
             </Link>
           </Button>
         </li>
@@ -68,7 +78,7 @@ export default function SidebarMenu({ links }: Props) {
             onClick={async () => await signOut({ callbackUrl: "/" })}
           >
             <LogOut />
-            <span>Logout</span>
+            <span>Log out</span>
           </Button>
         </li>
       </ul>

@@ -21,30 +21,31 @@ import {
   BrushIcon,
   CheckIcon,
   ChevronsUpDownIcon,
+  ComputerIcon,
   Moon,
   Sun,
-  SunMoon,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface Props {
   type: "button" | "menu" | "submenu" | "collapsible";
+  variant?: "default" | "outline" | "secondary" | "ghost" | "link";
   icons?: boolean;
 }
 
-export function ModeToggle({ type = "button", icons = true }: Props) {
+export function ModeToggle({ type = "button", variant, icons = true }: Props) {
   const { setTheme, theme } = useTheme();
 
   if (type === "button") {
     return (
       <Button
-        variant="outline"
+        variant={variant || "outline"}
         size="icon"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
         <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
         <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        <span className="sr-only">Change theme</span>
+        <span className="sr-only">Cambiar tema</span>
       </Button>
     );
   }
@@ -54,12 +55,12 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            variant="outline"
+            variant={variant || "outline"}
             size="icon"
           >
             <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Change theme</span>
+            <span className="sr-only">Cambiar tema</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -81,7 +82,7 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
             className="cursor-pointer"
             onClick={() => setTheme("system")}
           >
-            {icons ? <SunMoon className="mr-2 h-4 w-4" /> : null}
+            {icons ? <ComputerIcon className="mr-2 h-4 w-4" /> : null}
             <span>System</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
@@ -94,7 +95,7 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
       <Collapsible>
         <CollapsibleTrigger asChild>
           <Button
-            variant="ghost"
+            variant={variant || "ghost"}
             className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
           >
             <BrushIcon />
@@ -104,7 +105,7 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
         </CollapsibleTrigger>
         <CollapsibleContent className="flex flex-col">
           <Button
-            variant="ghost"
+            variant={variant || "ghost"}
             className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
             onClick={() => setTheme("light")}
           >
@@ -115,7 +116,7 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
             )}
           </Button>
           <Button
-            variant="ghost"
+            variant={variant || "ghost"}
             className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
             onClick={() => setTheme("dark")}
           >
@@ -126,11 +127,11 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
             )}
           </Button>
           <Button
-            variant="ghost"
+            variant={variant || "ghost"}
             className="relative w-full cursor-pointer justify-start gap-2 font-semibold"
             onClick={() => setTheme("system")}
           >
-            {icons ? <SunMoon className="mr-2 h-4 w-4" /> : null}
+            {icons ? <ComputerIcon className="mr-2 h-4 w-4" /> : null}
             <span>System</span>
             {theme === "system" && (
               <CheckIcon className="absolute right-4 h-4 w-4" />
@@ -168,7 +169,7 @@ export function ModeToggle({ type = "button", icons = true }: Props) {
               className="cursor-pointer"
               onClick={() => setTheme("system")}
             >
-              {icons ? <SunMoon className="mr-2 h-4 w-4" /> : null}
+              {icons ? <ComputerIcon className="mr-2 h-4 w-4" /> : null}
               <span>System</span>
             </DropdownMenuItem>
           </DropdownMenuSubContent>

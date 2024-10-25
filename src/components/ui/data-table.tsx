@@ -70,7 +70,7 @@ export function DataTable<TData, TValue>({
       <div className="flex items-center gap-3 p-4">
         <Input
           type="search"
-          placeholder="Buscar..."
+          placeholder="Search..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
@@ -83,7 +83,7 @@ export function DataTable<TData, TValue>({
               variant="outline"
               className="ml-auto"
             >
-              Columnas
+              Columns
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

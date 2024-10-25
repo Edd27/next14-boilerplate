@@ -18,12 +18,13 @@ async function main() {
 
     await prisma.user.create({
       data: {
-        name: "John",
-        surname: "Doe",
-        email: "jdoe@me.com",
-        username: "jdoe",
-        password: await hash("jdoe", Number(process.env.SALT_ROUNDS)),
+        name: "Edgar",
+        surname: "Benavides",
+        email: "edgarben27@gmail.com",
+        username: "edgar",
+        password: await hash("admin12345", Number(process.env.SALT_ROUNDS)),
         isActivated: true,
+        role: "ADMIN",
       },
     });
 

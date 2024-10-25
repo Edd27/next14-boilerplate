@@ -29,7 +29,10 @@ export default function Section({
         {subtitle && <p className="text-sm opacity-75">{subtitle}</p>}
         {href && (
           <Button asChild>
-            <Link href={href}>
+            <Link
+              href={href}
+              scroll={false}
+            >
               <PlusIcon className="mr-2 h-4 w-4" />
               {hrefText}
             </Link>
