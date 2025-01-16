@@ -23,7 +23,7 @@
     "skipLibCheck": true,
     "strict": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [".lintstagedrc.js", "node_modules", "dist", "build"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
