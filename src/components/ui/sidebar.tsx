@@ -1,7 +1,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 import { metadata } from "@/app/layout";
 import { User } from "@/lib/definitions";
-import { BotMessageSquareIcon } from "lucide-react";
+import { Building2Icon } from "lucide-react";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { links } from "./links";
@@ -15,7 +15,7 @@ export default async function Sidebar() {
   return (
     <aside className="fixed left-0 top-0 z-50 hidden h-screen w-64 overflow-hidden bg-background shadow lg:block">
       <header className="flex h-16 items-center gap-2 px-8">
-        <BotMessageSquareIcon />
+        <Building2Icon />
         <Link
           href="/dashboard"
           className="text-xl font-bold"

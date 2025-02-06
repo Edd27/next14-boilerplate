@@ -4,9 +4,7 @@ This GitHub project template is designed to help you get started quickly with Ne
 
 ## Demo
 
-you can see a demonstration of the project at: 
-
-[Demo](https://next-template.edgarbenavides.dev/)
+You can see the demo project on [this link](https://next-template.edgarbenavides.dev/)
 
 ## Technologies
 
@@ -20,57 +18,98 @@ you can see a demonstration of the project at:
 
 ## Getting started
 
-1. Clone this repository to your local development environment.
+### Option 1: Use template on GitHub
+
+1. Fork this project
+
+2. Create new project and select this template as repository template:
+
+![alt text](image.png)
+
+### Option 2: Create new project
+
+1. Create a new project using `create-next-app` tool with this command
 
    ```bash
-   git clone https://github.com/Edd27/next14-boilerplate.git
+   npx create-next-app@latest --example "https://github.com/Edd27/next14-boilerplate" [name-of-your-project]
    ```
 
-   or directly create a new repository from this template.
+## Run the boilerplate
 
-2. Create a `.env` file from `.env.example`, then edit with your values.
+### Manually
 
-3. Create a docker container with PostgreSQL.
+1. Create a `.env` file from `.env.example`, then update variables values.
 
    ```bash
-   docker compose up -d
+   cp .env.example .env
    ```
 
-4. Install the project dependencies:
+2. Install the project dependencies:
 
    ```bash
    npm install
    ```
 
-5. Push prisma schema to the database.
+3. Push prisma schema to the database.
 
    ```bash
    npx prisma db push
    ```
 
-6. Seed database:
+4. Seed database:
 
    ```bash
    npx prisma db seed
    ```
 
-7. Run server on dev mode:
+5. Run server on dev mode:
+
    ```bash
    npm run dev
    ```
-8. Test the app, with the following credentials:
 
-   Username:
-
-   ```
-   edgar
+6. Access the app at:
+   ```bash
+   http://localhost:3000
    ```
 
-   Password:
+### Using Docker
 
+1. Create `.env.development` and `.env.production` files:
+
+   ```bash
+   cp .env.example .env.development
+   cp .env.example .env.production
    ```
-   admin12345
+
+   > NOTE: Update the `.env.development` and `.env.production` files
+
+2. Run the app using Docker Compose:
+
+   ```bash
+   docker compose --env-file .env.development up -d --build
    ```
+
+3. Access the app at:
+   ```bash
+   http://localhost:3000
+   ```
+
+## Testing
+
+Teste the app with the following credentials:
+
+- Username:
+
+  ```
+  edgar
+  ```
+
+- Password:
+
+  ```
+  admin12345
+  ```
 
 ## License
 

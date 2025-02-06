@@ -61,7 +61,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,scss,md,json}": "prettier --write",
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+    "*.{js,jsx,ts,tsx}": "eslint --cache --cache-location node_modules/.cache/eslint --fix"
   },
   "name": "next14-boilerplate",
   "prisma": {

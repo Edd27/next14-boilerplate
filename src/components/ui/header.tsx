@@ -18,12 +18,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { User } from "@/lib/definitions";
-import {
-  BotMessageSquareIcon,
-  LogOut,
-  MenuIcon,
-  UserRoundIcon,
-} from "lucide-react";
+import { Building2Icon, LogOut, MenuIcon, UserRoundIcon } from "lucide-react";
 import { SessionProvider, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -193,8 +188,8 @@ export default function Header() {
           href="/dashboard"
           className="flex items-center gap-2 text-xl font-bold lg:hidden"
         >
-          <BotMessageSquareIcon />
-          <span className="hidden sm:block">Botion</span>
+          <Building2Icon />
+          <span className="hidden sm:block">ACME Inc</span>
         </Link>
         <section className="flex items-center gap-4">
           <Menu />
